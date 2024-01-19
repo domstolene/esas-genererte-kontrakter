@@ -1,10 +1,6 @@
 import net.pwall.json.kotlin.codegen.gradle.JSONSchemaCodegen
 import net.pwall.json.kotlin.codegen.gradle.JSONSchemaCodegenPlugin
 
-repositories {
-    mavenCentral()
-}
-
 buildscript {
     repositories {
         mavenCentral()
@@ -24,6 +20,9 @@ repositories {
     mavenCentral()
 }
 
+val GITHUB_USER: String by project
+val GITHUB_TOKEN: String by project
+
 sourceSets.main.configure {
     kotlin.srcDirs(layout.buildDirectory.dir("generated-sources/kotlin"))
 }
@@ -31,16 +30,11 @@ sourceSets.main.configure {
 apply<JSONSchemaCodegenPlugin>()
 configure<JSONSchemaCodegen> {
     packageName.set("no.domstol.esas.kontrakter")
-
     inputs {
         inputFile(file("kontrakter"))
     }
-
     outputDir.set(file("build/generated-sources/kotlin"))
 }
-
-val GITHUB_USER: String by project
-val GITHUB_TOKEN: String by project
 
 publishing {
 
