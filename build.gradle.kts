@@ -51,21 +51,17 @@ publishing {
     }
 
     publications {
-        create<MavenPublication>(project.name) {
+        create<MavenPublication>("esas-genererte-kontrakter-publication") {
             groupId = "no.domstol"
-            artifactId = "${project.name}-v$ARTIFACT_VARIANT"
+            artifactId = "esas-genererte-kontrakter-v$ARTIFACT_VARIANT"
             from(components["java"])
             pom {
-                artifactId = "${project.name}-vz$ARTIFACT_VARIANT"
                 licenses {
                     license {
                         name.set("GNU Lesser General Public License version 3 or later")
                         url.set("https://www.gnu.org/licenses/lgpl-3.0.txt")
                     }
                 }
-            }
-            afterEvaluate {
-                artifactId = "${project.name}-vy$ARTIFACT_VARIANT"
             }
         }
     }
