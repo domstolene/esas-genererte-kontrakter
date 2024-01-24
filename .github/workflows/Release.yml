@@ -56,9 +56,3 @@ jobs:
         with:
           gradle-version: wrapper
           arguments: publish -Pversion=${{ needs.configure.outputs.version }} -PARTIFACT_VARIANT=${{ needs.configure.outputs.minor_version }} -PGITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} -PGITHUB_USER=${{ github.actor }}
-
-      - name: Publish packages 4
-        uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: wrapper
-          arguments: publishVariantPublicationToEsas-genererte-kontrakterRepository -Pversion=${{ needs.configure.outputs.version }} -PARTIFACT_VARIANT=${{ needs.configure.outputs.minor_version }} -PGITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} -PGITHUB_USER=${{ github.actor }}
