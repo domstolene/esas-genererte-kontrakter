@@ -22,7 +22,7 @@ repositories {
 
 val GITHUB_USER: String by project
 val GITHUB_TOKEN: String by project
-val ARTIFACT_VARIANT: String by project
+val ARTIFACT_VARIANT: String = project.findProperty("ARTIFACT_VARIANT") as String? ?: "x"
 
 sourceSets.main.configure {
     kotlin.srcDirs(layout.buildDirectory.dir("generated-sources/kotlin"))
@@ -51,7 +51,7 @@ publishing {
     }
 
     publications {
-        create<MavenPublication>("maven") {
+        create<MavenPublication>(project.name) {
             groupId = "no.domstol"
             artifactId = "${project.name}-v$ARTIFACT_VARIANT"
             from(components["java"])
