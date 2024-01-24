@@ -53,7 +53,7 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             groupId = "no.domstol"
-            artifactId = "${project.name}_$ARTIFACT_VARIANT"
+            artifactId = "${project.name}-v$ARTIFACT_VARIANT"
             from(components["java"])
             pom {
                 licenses {

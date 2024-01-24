@@ -29,7 +29,7 @@ jobs:
             MINOR_VERSION=${BASH_REMATCH[2]}
             PATCH_VERSION=${BASH_REMATCH[3]}
             echo "Major: $MAJOR_VERSION, Minor: $MINOR_VERSION, Patch: $PATCH_VERSION"
-            echo "version=$VERSION" >> $GITHUB_OUTPUT
+            echo "version=$MAJOR_VERSION.$MINOR_VERSION.$PATCH_VERSION" >> $GITHUB_OUTPUT
             echo "minor_version=$MINOR_VERSION" >> $GITHUB_OUTPUT
           else
             echo "::error::Invalid version format for $VERSION. Expected format is v1.0.0"
