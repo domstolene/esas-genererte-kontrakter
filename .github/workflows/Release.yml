@@ -48,7 +48,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        ref: ${{ github.event.inputs.ref_or_tag  }}
+        with:
+          ref: ${{ github.event.inputs.ref_or_tag  }}
 
       - name: Publish packages
         uses: gradle/gradle-build-action@v2
