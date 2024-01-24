@@ -51,7 +51,7 @@ publishing {
     }
 
     publications {
-        create<MavenPublication>("esas-genererte-kontrakter-publication") {
+        create<MavenPublication>(project.name) {
             groupId = "no.domstol"
             artifactId = "esas-genererte-kontrakter-v$ARTIFACT_VARIANT"
             from(components["java"])

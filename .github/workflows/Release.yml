@@ -56,4 +56,4 @@ jobs:
         with:
           gradle-version: wrapper
           cache-read-only: true
-          arguments: publish -Pversion=${{ needs.configure.outputs.version }} -PARTIFACT_VARIANT=${{ needs.configure.outputs.minor_version }} -PGITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} -PGITHUB_USER=${{ github.actor }}
+          arguments: clean publish -Pversion=${{ needs.configure.outputs.version }} -PARTIFACT_VARIANT=${{ needs.configure.outputs.minor_version }} -PGITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} -PGITHUB_USER=${{ github.actor }}
